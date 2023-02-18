@@ -6,6 +6,8 @@
 
 In this repository, we try to put them together!
 
+Note: This is currently on hold, as calling Flix from Java is currently kind of difficult. I may be able to find a work around, but who knows.
+
 ## Why?
 
 [Kotlin](https://kotlinlang.org/) is great and all, and is a big improvement over Java, yet the language is still lacking in may ways: 
