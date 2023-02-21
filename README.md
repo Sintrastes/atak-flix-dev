@@ -2,12 +2,14 @@
 
 [ATAK](https://github.com/deptofdefense/AndroidTacticalAssaultKit-CIV) is a geospatial mapping application allowing teams to communicate and share information in real-time.
 
-[Flix](https://flix.dev/) is a modern programming language compiling to the JVM that offers many advantages over traditional languages used for Android development (Java, Kotlin).
+[Flix](https://flix.dev/) is a modern programming language compiling to the JVM that offers many advantages over traditional languages used for Android development (such as Java and Kotlin).
 
 In this repository, we try to put them together!
 
 <s>Note: This is currently on hold, as calling Flix from Java is currently kind of difficult. I may be able to find a work around, but who knows.</s>
   * I found a workaround! Now just to cook up some interesting examples that I can push to Github and cook up some better gradle integration with the Flix compiler!
+
+![hello_flix](https://user-images.githubusercontent.com/4064213/220252400-a24e61f1-7fd8-4da2-b1a9-d24fa7ad1121.png)
 
 ## Why?
 
