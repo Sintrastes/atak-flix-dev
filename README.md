@@ -29,7 +29,7 @@ In this repository, we try to put them together!
 
 As someone who does their day-to-day ATAK work in Kotlin... I wanted to experiment with a better way forward, and Flix (given it addresses these language deficienies and more, and complies to the JVM) seems like the best option to do that.
 
-Scala was another option for this, but unfortounately it has poor (and effectively non-existant in the latest versions) support for Android due to the versions of the JDK it targets. Additionally, Scala also does not make it possible to track the purity of functions, and like Kotlin only has a result-based type inference mechanism. 
+Scala was another option for this, but unfortounately it has poor (and effectively non-existent in the latest versions) support for Android due to the versions of the JDK it targets. Additionally, Scala also does not make it possible to track the purity of functions, and like Kotlin only has a result-based type inference mechanism. 
 
 ## License
 
