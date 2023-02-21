@@ -21,7 +21,7 @@ In this repository, we try to put them together!
   * Generics are annoying (thanks to Hindley-Milner, this can all be implicitly inferred in Flix 😊), and generic numeric code in general can be annoying due to the lack of type-classes. 
   * Receivers are cool and all, but I really want typeclasses. The JavaGI paper was published over a decade ago -- [we know how to incorporate typeclasses in a standard object-oriented language](https://dl.acm.org/doi/10.1145/1985342.1985343) -- let's see it in a production language already!†
   * Lack of type-classes in general can be pretty annoying, and in particular the "hack" of every object having implicit `.equals(other: Any?)`, and `.toString()` methods associated with them, even when that may or may not make sense is annoying as well.
-  * Implicit casting to supertypes is nice for interop with Java and OO I guess, but it can really cramp a functional style. I'm looking at you `Flow<A> :< StateFlow<A>`.
+  * Implicit casting to supertypes is nice for interop with Java and OO I guess, but it can really cramp a functional style. I'm looking at you `StateFlow<A> :< Flow<A>`.
 
 (* Ok, I guess technically though it is based on Hindley-Milner, Flix still makes you annotate top-level definitions, so it doesn't get you quite there... But still.)
 
