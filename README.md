@@ -16,8 +16,9 @@ In this repository, we try to put them together!
 [Kotlin](https://kotlinlang.org/) is great and all, and is a big improvement over Java, yet the language is still lacking in may ways: 
 
   * There is no way for the complier to enforce the _purity_ of functions, which is incredibly important for reasoning about your program and making it as testable as possible. 
+    * The fact that the compiler can't enforce things like this makes it all-to-easy to make "spooky action at a distance" code when writing idiomatic Kotlin, where arbitrary parts of your codebase can be affected by arbitrary other parts. A pure function takes inputs, and produces outputs -- that's it! -- super easy to test, super easy to reason about.
   * Type inference is weak (result-based), and doesn't support the joy that the ML-style "Write it like it's a dynamically typed language (no annotations), but with full type safety!" can bring.* 
-  * Generics are annoying (thanks to Hindley-Milner, this can all be implicitly inferred in Flix :) ), and generic numeric code in general can be annoying due to the lack of type-classes. 
+  * Generics are annoying (thanks to Hindley-Milner, this can all be implicitly inferred in Flix 😊), and generic numeric code in general can be annoying due to the lack of type-classes. 
   * Receivers are cool and all, but I really want typeclasses. The JavaGI paper was published over a decade ago -- [we know how to incorporate typeclasses in a standard object-oriented language](https://dl.acm.org/doi/10.1145/1985342.1985343) -- let's see it in a production language already!†
   * Lack of type-classes in general can be pretty annoying, and in particular the "hack" of every object having implicit `.equals(other: Any?)`, and `.toString()` methods associated with them, even when that may or may not make sense is annoying as well.
   * Implicit casting to supertypes is nice for interop with Java and OO I guess, but it can really cramp a functional style. I'm looking at you `Flow<A> :< StateFlow<A>`.
