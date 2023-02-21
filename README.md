@@ -13,9 +13,11 @@ Note: This is currently on hold, as calling Flix from Java is currently kind of 
 [Kotlin](https://kotlinlang.org/) is great and all, and is a big improvement over Java, yet the language is still lacking in may ways: 
 
   * There is no way for the complier to enforce the _purity_ of functions, which is incredibly important for reasoning about your program and making it as testable as possible. 
-  * Type inference is weak (result-based), and doesn't support the joy that the ML-style "Write it like it's a dynamically typed language (no annotations), but with full type safety!" can bring. 
+  * Type inference is weak (result-based), and doesn't support the joy that the ML-style "Write it like it's a dynamically typed language (no annotations), but with full type safety!" can bring*. 
   * Generics are annoying (thanks to Hindley-Milner, this can all be implicitly inferred in Flix :) ), and generic numeric code in general can be annoying due to the lack of type-classes. 
   * Lack of type-classes in general can be pretty annoying, and in particular the "hack" of every object having implicit `.equals(other: Any?)`, and `.toString()` methods associated with them, even when that may or may not make sense is annoying as well.
+
+* Ok, I guess technically, though based on Hindley-Milner, Flix still makes you annotate top-level definitions, so it doesn't get you quite there... But still.
 
 As someone who does their day-to-day ATAK work in Kotlin... I wanted to experiment with a better way forward, and Flix (given it addresses these language deficienies and more, and complies to the JVM) seems like the best option to do that.
 
