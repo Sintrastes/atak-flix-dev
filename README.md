@@ -25,7 +25,7 @@ In this repository, we try to put them together!
 
 (* Ok, I guess technically though it is based on Hindley-Milner, Flix still makes you annotate top-level definitions, so it doesn't get you quite there... But still.)
 
-(† More specifically one that is easy to use with the Android ecosystem. Arguably Swift, Rust, and even C++20 are already here.)
+(† More specifically one that is easy to use with the Android ecosystem. Arguably Scala, Swift, Rust, and even C++20 are already here.)
 
 As someone who does their day-to-day ATAK work in Kotlin... I wanted to experiment with a better way forward, and Flix (given it addresses these language deficienies and more, and complies to the JVM) seems like the best option to do that.
 
