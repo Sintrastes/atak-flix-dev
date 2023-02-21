@@ -16,8 +16,10 @@ Note: This is currently on hold, as calling Flix from Java is currently kind of 
   * Type inference is weak (result-based), and doesn't support the joy that the ML-style "Write it like it's a dynamically typed language (no annotations), but with full type safety!" can bring*. 
   * Generics are annoying (thanks to Hindley-Milner, this can all be implicitly inferred in Flix :) ), and generic numeric code in general can be annoying due to the lack of type-classes. 
   * Lack of type-classes in general can be pretty annoying, and in particular the "hack" of every object having implicit `.equals(other: Any?)`, and `.toString()` methods associated with them, even when that may or may not make sense is annoying as well.
+  * Implicit castings to supertypes is nice for interop with Java and OO I guess, but it can really cramp a functional style. I'm looking at you `Flow<A> :< StateFlow<A>`.
 
-* Ok, I guess technically, though based on Hindley-Milner, Flix still makes you annotate top-level definitions, so it doesn't get you quite there... But still.
+
+(* Ok, I guess technically though it is based on Hindley-Milner, Flix still makes you annotate top-level definitions, so it doesn't get you quite there... But still.)
 
 As someone who does their day-to-day ATAK work in Kotlin... I wanted to experiment with a better way forward, and Flix (given it addresses these language deficienies and more, and complies to the JVM) seems like the best option to do that.
 
