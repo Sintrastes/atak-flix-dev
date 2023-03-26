@@ -9,7 +9,6 @@ import com.atakmap.android.maps.MapComponent;
 import com.atakmap.android.maps.MapView;
 import com.atakmap.android.plugintemplate.PluginTemplateMapComponent;
 
-import dev.flix.runtime.Unit;
 import transapps.maps.plugin.lifecycle.Lifecycle;
 import android.app.Activity;
 import android.content.Context;

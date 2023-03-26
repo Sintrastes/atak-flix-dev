@@ -1,3 +1,6 @@
+
+import java.io.File
+
 buildscript {
     repositories {
         google()
@@ -34,8 +37,22 @@ task clean(type: Delete) {
 }
 
 task compileFlix(type: JavaExec) {
-    main = "ca.uwaterloo.flix.Main"
+    workingDir = "./"
+    classpath = configurations.compileFlix
+    args('build')
+}
+
+task packageFlix(type: JavaExec) {
+    dependsOn "compileFlix"
     workingDir = "./"
     classpath = configurations.compileFlix
     args('build-jar')
-  }
+}
+
+task assembleFlix() {
+    dependsOn "packageFlix"
+    doLast {
+        file("app/build/libs").mkdirs()
+        file("atak-flix-dev.jar").renameTo("app/build/libs/atak-flix-dev.jar")
+    }
+}

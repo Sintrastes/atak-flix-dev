@@ -93,8 +93,3 @@ lint/tmp/
 
 # flix dependencies (e.x. Android SDK jar).
 lib/
-
-# Build (eventually) jars from gradle flix compiler.
-app/libs/
-app/libs/atak-flix-dev.jar
-

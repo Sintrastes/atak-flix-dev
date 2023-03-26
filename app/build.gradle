@@ -254,12 +254,17 @@ android {
     //}
 }
 
+dependencies {
+    implementation fileTree(dir: 'build/libs', include: '*.jar')
+}
+
+android.applicationVariants.all { variant ->
+   tasks.getByName("compile${variant.name.capitalize()}JavaWithJavac")
+           .dependsOn(":assembleFlix")
+}
+
 retrolambda {
     javaVersion JavaVersion.VERSION_1_7
     defaultMethods false
     incremental true
-}
-
-dependencies {
-    implementation fileTree(dir: 'libs', include: '*.jar')
 }
