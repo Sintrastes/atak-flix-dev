@@ -60,6 +60,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:4.2.2'
+        classpath 'me.tatarka:gradle-retrolambda:3.7.1'
         if(isDevKitEnabled()) {
             classpath "com.atakmap.gradle:atak-gradle-takdev:${takdevVersion}"
         } else {
@@ -82,6 +83,7 @@ allprojects {
 
 apply plugin: 'com.android.application'
 apply plugin: 'atak-takdev-plugin'
+apply plugin: 'me.tatarka.retrolambda'
 
 android {
     compileSdkVersion 26
@@ -98,6 +100,7 @@ android {
         abortOnError true
     }
 
+    /*
     signingConfigs {
         debug {
             def kf = getValueFromPropertiesFile(project.rootProject.file('local.properties'), 'takDebugKeyFile')
@@ -106,9 +109,9 @@ android {
             def kp = getValueFromPropertiesFile(project.rootProject.file('local.properties'), 'takDebugKeyPassword')
 
             if (kf == null) {
-                 throw new GradleException("No signing key configured!")
+                throw new GradleException("No signing key configured!")
             }
- 
+
             storeFile file(kf)
             if (kfp != null) storePassword kfp
             if (ka != null) keyAlias ka
@@ -121,7 +124,7 @@ android {
             def kp = getValueFromPropertiesFile(project.rootProject.file('local.properties'), 'takReleaseKeyPassword')
 
             if (kf == null) {
-                 throw new GradleException("No signing key configured!")
+                throw new GradleException("No signing key configured!")
             }
 
             storeFile file(kf)
@@ -131,6 +134,8 @@ android {
         }
     }
 
+     */
+
     buildTypes {
         debug {
             debuggable true
@@ -139,7 +144,7 @@ android {
         release {
             minifyEnabled true
             proguardFile 'proguard-gradle.txt'
-            signingConfig signingConfigs.release
+            // signingConfig signingConfigs.release
             matchingFallbacks = ['odk']
         }
     }
@@ -198,7 +203,7 @@ android {
         }
         gov {
             dimension "application"
-            // GOV builds are just CIV api builds with additional information in the strings file 
+            // GOV builds are just CIV api builds with additional information in the strings file
             manifestPlaceholders = [atakApiVersion: "com.atakmap.app@" + ATAK_VERSION + ".CIV"]
         }
         can {
@@ -214,8 +219,8 @@ android {
     sourceSets {
         main {
 
-            // It is strongly encouraged that plugin developers do not modify the archiveBaseName, version code logic and version 
-            // name logic to provide for consistency within the community.   
+            // It is strongly encouraged that plugin developers do not modify the archiveBaseName, version code logic and version
+            // name logic to provide for consistency within the community.
             setProperty("archivesBaseName", "ATAK-Plugin-" + rootProject.name + "-" + PLUGIN_VERSION + "-" + getVersionName() + "-" + ATAK_VERSION)
             defaultConfig.versionCode = getVersionCode()
             defaultConfig.versionName = PLUGIN_VERSION + " (" + getVersionName() + ") - [" + ATAK_VERSION + "]"
@@ -237,15 +242,24 @@ android {
     }
 
     defaultConfig {
-        minSdkVersion 21
+        minSdkVersion 26
         ndk {
             abiFilters "armeabi-v7a", "arm64-v8a", "x86"
         }
     }
+
+    //compileOptions {
+    //    sourceCompatibility = JavaVersion.VERSION_1_8
+    //    targetCompatibility = JavaVersion.VERSION_1_8
+    //}
 }
 
+retrolambda {
+    javaVersion JavaVersion.VERSION_1_7
+    defaultMethods false
+    incremental true
+}
 
 dependencies {
     implementation fileTree(dir: 'libs', include: '*.jar')
 }
-

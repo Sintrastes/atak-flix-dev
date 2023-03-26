@@ -83,3 +83,18 @@ lint/generated/
 lint/outputs/
 lint/tmp/
 # lint/reports/
+
+# Misc. Local Data
+**/.DS_Store
+.idea/
+.metals/
+.vscode/
+*.hprof
+
+# flix dependencies (e.x. Android SDK jar).
+lib/
+
+# Build (eventually) jars from gradle flix compiler.
+app/libs/
+atak-flix-dev.jar
+
