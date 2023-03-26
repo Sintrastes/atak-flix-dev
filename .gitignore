@@ -96,5 +96,5 @@ lib/
 
 # Build (eventually) jars from gradle flix compiler.
 app/libs/
-atak-flix-dev.jar
+app/libs/atak-flix-dev.jar
 

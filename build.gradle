@@ -1,4 +1,3 @@
-
 buildscript {
     repositories {
         google()
@@ -18,6 +17,25 @@ allprojects {
     }
 }
 
+configurations {
+    compileFlix
+}
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+def flixCompiler = properties.getProperty('flix.compiler')
+
+dependencies {
+    compileFlix files(flixCompiler)
+}
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+task compileFlix(type: JavaExec) {
+    main = "ca.uwaterloo.flix.Main"
+    workingDir = "./"
+    classpath = configurations.compileFlix
+    args('build-jar')
+  }
