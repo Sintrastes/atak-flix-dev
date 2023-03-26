@@ -14,19 +14,19 @@ In this repository, we try to put them together!
 
   * There is no way for the complier to enforce the _purity_ of functions, which is incredibly important for reasoning about your program and making it as testable as possible. 
     * The fact that the compiler can't enforce things like this makes it all-to-easy to make "spooky action at a distance" code when writing idiomatic Kotlin, where arbitrary parts of your codebase can be affected by arbitrary other parts. A pure function takes inputs, and produces outputs -- that's it! -- super easy to test, super easy to reason about.
-  * Type inference is weak (result-based), and doesn't support the joy that the ML-style "Write it like it's a dynamically typed language (no annotations), but with full type safety!" can bring.* 
+  * Type inference is weak (result-based), and doesn't support the joy that the ML-style "Write it like it's a dynamically typed language (no annotations), but with full type safety!" can bring. 
   * Generics are annoying (thanks to Hindley-Milner, this can all be implicitly inferred in Flix 😊), and generic numeric code in general can be annoying due to the lack of type-classes. 
-  * Receivers are cool and all, but I really want typeclasses. The JavaGI paper was published over a decade ago -- [we know how to incorporate typeclasses in a standard object-oriented language](https://dl.acm.org/doi/10.1145/1985342.1985343) -- let's see it in a production language already!†
+  * Receivers are cool and all, but I really want typeclasses. The JavaGI paper was published over a decade ago -- [we know how to incorporate typeclasses in a standard object-oriented language](https://dl.acm.org/doi/10.1145/1985342.1985343) -- let's see it in a production language already!
   * Lack of type-classes in general can be pretty annoying, and in particular the "hack" of every object having implicit `.equals(other: Any?)`, and `.toString()` methods associated with them, even when that may or may not make sense is annoying as well.
   * Implicit casting to supertypes is nice for interop with Java and OO I guess, but it can really cramp a functional style. I'm looking at you `StateFlow<A> :< Flow<A>`.
-
-(* Ok, I guess technically though it is based on Hindley-Milner, Flix still makes you annotate top-level definitions, so it doesn't get you quite there... But still.)
-
-(† More specifically one that is easy to use with the Android ecosystem. Arguably Scala, Swift, Rust, and even C++20 are already here.)
 
 As someone who does their day-to-day ATAK work in Kotlin... I wanted to experiment with a better way forward, and Flix (given it addresses these language deficienies and more, and complies to the JVM) seems like the best option to do that.
 
 Scala was another option for this, but unfortounately it has poor (and effectively non-existent in the latest versions) support for Android due to the versions of the JDK it targets. Additionally, Scala also does not make it possible to track the purity of functions, and like Kotlin only has a result-based type inference mechanism. 
+
+## Building
+
+To build this project, you will need to set `flix.properties` in your `local.properties` file to point to a built `jar` of the flix compiler. Additionally, you will need to place your project somewhere where the takdev plugin can find the `main.jar` required to access the ATAK API in your project. An easy way to do this is to close the root directory of your project in `atak-civ/plugins/`, where `atak-civ` has been downloaded from the ATAK open source release.
 
 ## License
 
