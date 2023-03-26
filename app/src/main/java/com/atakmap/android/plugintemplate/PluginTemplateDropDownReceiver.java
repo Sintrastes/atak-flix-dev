@@ -43,7 +43,7 @@ public class PluginTemplateDropDownReceiver extends DropDownReceiver implements
 
         // Initialize the Flix layout.
         templateView.addView(
-                (TextView) Ns.m_textViewExample(context)
+                (View) Ns.m_textViewExample(context)
         );
     }
 
