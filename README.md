@@ -7,7 +7,7 @@
 In this repository, we try to put them together!
 
 <s>Note: This is currently on hold, as calling Flix from Java is currently kind of difficult. I may be able to find a work around, but who knows.</s>
-  * I found a workaround! Now just to cook up some interesting examples that I can push to Github and cook up some better gradle integration with the Flix compiler!
+  * I found a workaround! Now just to <s>cook up some interesting examples that I can push to Github and</s> cook up some better gradle integration with the Flix compiler!
 
 ![hello_flix](https://user-images.githubusercontent.com/4064213/220252400-a24e61f1-7fd8-4da2-b1a9-d24fa7ad1121.png)
 
