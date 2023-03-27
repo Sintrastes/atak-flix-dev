@@ -41,10 +41,12 @@ public class PluginTemplateDropDownReceiver extends DropDownReceiver implements
         templateView = (LinearLayout) PluginLayoutInflater.inflate(context,
                 R.layout.main_layout, null);
 
-        // Initialize the Flix layout.
-        templateView.addView(
-                (View) Ns.m_textViewExample(context)
-        );
+        Thread thread = new Thread(() -> {
+            // Initialize the Flix layout.
+            Ns.m_textViewExample(templateView, context);
+        });
+
+        thread.start();
     }
 
     /**************************** PUBLIC METHODS *****************************/

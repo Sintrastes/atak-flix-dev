@@ -3,12 +3,17 @@ namespace Android {
     pub type alias Context = ##android.content.Context
     pub type alias AttributeSet = ##android.util.AttributeSet
     pub type alias View = ##android.view.View
+    pub type alias ViewGroup = ##android.view.ViewGroup
     pub type alias TextView = ##android.widget.TextView
     pub type alias Button = ##android.widget.Button
     pub type alias LinearLayout = ##android.widget.LinearLayout
     pub type alias OnClickListener = ##android.view.View$OnClickListener
 
-    pub enum Component(Context -> View \ IO)
+    pub enum Component(Context -> View & IO)
+
+    pub eff Layout {
+        pub def addComponent(value: Component): Unit
+    }
 
     namespace Component {
         use Android.View 
@@ -26,12 +31,16 @@ namespace Android {
         }
     }
 
-    pub def textView(contents: String): Component = {
+    pub def textView(rh: Region[r], contents: Dynamic[r, IO, String]): Component = {
         import new android.widget.TextView(Context): ##android.widget.TextView \ IO as newTextView;
         import android.widget.TextView.setText(##java.lang.CharSequence): Unit \ IO as setText;
         Android.Component.Component(ctx ->
             let view = newTextView(ctx);
-            setText(view, checked_cast(contents));
+
+            contents |> Dynamic.onUpdate(rh, text ->
+                setText(view, checked_cast(text))
+            );
+
             checked_cast(view)
         )
     }
