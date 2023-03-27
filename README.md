@@ -25,7 +25,7 @@ Scala was another option for this, but unfortounately it has poor (and effective
 
 ## Building
 
-To build this project, you will need to set `flix.properties` in your `local.properties` file to point to a built `jar` of the flix compiler. Additionally, you will need to place your project somewhere where the takdev plugin can find the `main.jar` required to access the ATAK API in your project. An easy way to do this is to close the root directory of your project in `atak-civ/plugins/`, where `atak-civ` has been downloaded from the ATAK open source release.
+To build this project, you will need to set `flix.compiler` in your `local.properties` file to point to a built `jar` of the flix compiler. Additionally, you will need to place your project somewhere where the takdev plugin can find the `main.jar` required to access the ATAK API in your project. An easy way to do this is to clone the root directory of your project in `atak-civ/plugins/`, where `atak-civ` has been downloaded from the ATAK open source release.
 
 ## License
 
